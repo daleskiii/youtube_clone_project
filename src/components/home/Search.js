@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
 import "./Search.css";
 import Display from "./Display";
@@ -13,22 +13,21 @@ function Search() {
   event.preventDefault();
 
   console.log(`${searchTerm} was submitted` );
-  console.log(event.target.query.value);
+  // console.log(event.target.query.value);
 
    async function getData() {
     try {
     const result = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=` + 
-    `${event.target.query.value}` + `&type=video&key=AIzaSyAxrg1FsPQSEGLDOxgF09AhlRbUppuAFys&maxResults=1`);
+    `${event.target.query.value}` + `&type=video&key=AIzaSyAxrg1FsPQSEGLDOxgF09AhlRbUppuAFys&maxResults=7`);
 
-    // console.log(result);
-    // setVideoList(result.data)
-    // console.log(searchTerm);
-    console.log(result.data);
+    setVideoList(result.data.items)
+    // console.log(result.data.items);
   } catch (e) {
     console.log(e);
   }
 }
   getData()
+  console.log(videoList);
   
   //reset form when submited
   setSearchTerm("")
@@ -60,6 +59,7 @@ function Search() {
       </form>
       <Display 
       searchTerm={searchTerm}
+      videoList={videoList}
       />
     </div>
   );
