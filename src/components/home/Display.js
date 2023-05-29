@@ -1,21 +1,18 @@
-import Video from './Video'
-import React, { useState } from 'react'
+import Video from "./Video";
+import React from "react";
 
-function Display({videoList}) {
-  const [message, setMessage] = useState(false);
-
-
+function Display({ videoList }) {
   return (
     <main>
-       <div className="container text-center">
-         <div className="row row-cols-3">
-           {videoList.map((item) => {
+      <div className="container text-center">
+        <div className="row row-cols-3">
+          {videoList.map((item) => {
             return <Video key={item.id.videoId} {...item} />;
           })}
-           </div>
         </div>
+      </div>
     </main>
-  )
+  );
 }
 
-export default Display
+export default Display;
