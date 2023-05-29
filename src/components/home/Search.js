@@ -7,13 +7,12 @@ import Display from "./Display";
 function Search() {
   const [searchTerm, setSearchTerm] = useState("")
   const [videoList, setVideoList] = useState([])
+  const [message, setMessage] = useState(`No Search Results! Please submit 
+  a search above!`);
 
 
  function handleOnSubmit(event){
   event.preventDefault();
-
-  console.log(`${searchTerm} was submitted` );
-  // console.log(event.target.query.value);
 
    async function getData() {
     try {
@@ -21,16 +20,15 @@ function Search() {
     `${event.target.query.value}` + `&type=video&key=AIzaSyAxrg1FsPQSEGLDOxgF09AhlRbUppuAFys&maxResults=7`);
 
     setVideoList(result.data.items)
-    // console.log(result.data.items);
   } catch (e) {
     console.log(e);
   }
 }
   getData()
-  console.log(videoList);
   
-  //reset form when submited
   setSearchTerm("")
+
+  setMessage("")
  }
 
 
@@ -46,6 +44,7 @@ function Search() {
             placeholder="Search..."
             value={searchTerm}
             onChange={event => setSearchTerm(event.target.value)}
+            required
           />
           <div className="input-group-append">
             <button
@@ -57,10 +56,15 @@ function Search() {
           </div>
         </div>
       </form>
-      <Display 
-      searchTerm={searchTerm}
-      videoList={videoList}
-      />
+      <div className='container'>
+        <ul className="list-group">
+         <li className="list-group-item list-group-item-light">{message}</li>
+        </ul>
+      </div>
+        <Display 
+        searchTerm={searchTerm}
+        videoList={videoList}
+        />
     </div>
   );
 }

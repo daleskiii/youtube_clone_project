@@ -1,12 +1,16 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
-function Video({snippet}) {
+function Video({snippet, id}) {
 
   return (
     <div className="col">
     <img src={snippet.thumbnails.medium.url} alt={snippet.title}/>
-     {/* <a href="#">{snippet.title}</a> */}
-     <h5>{snippet.title}</h5>
+     <Link to={`/video/${id.videoId}`} style={{ textDecoration: 'none' }}>
+      <h5 style={{ color: 'black', padding: 20 }}>
+        {snippet.title}
+      </h5>
+      </Link>
      </div>
   )
 }
