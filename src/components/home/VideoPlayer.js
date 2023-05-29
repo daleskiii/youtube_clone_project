@@ -11,12 +11,16 @@ function VideoPlayer() {
     <>
       <div id="youtubeContainer" className="container">
         <div className="youtube">
-          <YouTube videoId={id} />
+          <Video videoId={id} />
         </div>
       </div>
       <ComandName />
     </>
   );
+}
+
+function Video({ videoId }) {
+  return <YouTube videoId={videoId} />;
 }
 
 export default VideoPlayer;

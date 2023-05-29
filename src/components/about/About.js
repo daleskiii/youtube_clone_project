@@ -7,7 +7,7 @@ export const About = () => {
       <h2 className="about-header">About the Devlopers... </h2>
       <div className="developers-info">
         <h4 className="developers-header">Aundale Walker</h4>
-        <img />
+
         <p>
           I am a software developer from Brooklyn, NY. My coding journey began
           in December 2022 when I started learning programing through a
@@ -31,7 +31,7 @@ export const About = () => {
       </div>
       <div className="developers-info">
         <h4 className="developers-header">Chantal Gomez</h4>
-        <img />
+
         <p></p>
       </div>
       <br />

@@ -1,18 +1,15 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
 
-function Video({snippet, id}) {
-
+function Video({ snippet, id }) {
   return (
     <div className="col">
-    <img src={snippet.thumbnails.medium.url} alt={snippet.title}/>
-     <Link to={`/video/${id.videoId}`} style={{ textDecoration: 'none' }}>
-      <h5 style={{ color: 'black', padding: 20 }}>
-        {snippet.title}
-      </h5>
+      <img src={snippet.thumbnails.medium.url} alt={snippet.title} />
+      <Link to={`/video/${id.videoId}`} style={{ textDecoration: "none" }}>
+        <h5 style={{ color: "black", padding: 20 }}>{snippet.title}</h5>
       </Link>
-     </div>
-  )
+    </div>
+  );
 }
 
-export default Video
+export default Video;
