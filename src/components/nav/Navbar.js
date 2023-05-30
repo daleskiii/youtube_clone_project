@@ -14,7 +14,7 @@ function Nav() {
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
           aria-controls="navbarNav"
-          aria-expanded="true"
+          aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@ function Nav() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" href="#" to="/about">
+              <NavLink className="nav-link" to="/about">
                 About
               </NavLink>
             </li>
