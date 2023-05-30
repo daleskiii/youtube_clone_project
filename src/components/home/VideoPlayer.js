@@ -6,6 +6,7 @@ import ComandName from "./ComandName";
 
 function VideoPlayer() {
   const { id } = useParams();
+  // usePAram hook to store the value of the id
 
   return (
     <>

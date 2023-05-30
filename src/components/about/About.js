@@ -10,7 +10,7 @@ export const About = () => {
         <p>
           I am a software developer from Brooklyn, NY. My coding journey began
           in December 2022 when I started learning programing through a
-          non-profit organization named Pursuit, located in Queens, Ny. With
+          non-profit organization named Pursuit, located in Queens, NY. With
           dedication and passion, I am progressing steadily and expected to
           finish Pursuit's Core Program in December 2023.
         </p>
@@ -60,7 +60,7 @@ export const About = () => {
       </div>
       <br />
       <div className="about-project">
-        <h2 className="about-header"> About the Project</h2>
+        <h1 className="about-header"> About the Project</h1>
         <p>
           We created a YouTube application using the React framework in
           JavaScript. The application is fully functional and allows users to
