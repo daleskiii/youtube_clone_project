@@ -3,11 +3,10 @@ import "./About.css";
 
 export const About = () => {
   return (
-    <>
-      <h2 className="about-header">About the Devlopers... </h2>
+    <div className="container">
+      <h1 className="about-header">About the Devlopers... </h1>
       <div className="developers-info">
         <h4 className="developers-header">Aundale Walker</h4>
-
         <p>
           I am a software developer from Brooklyn, NY. My coding journey began
           in December 2022 when I started learning programing through a
@@ -29,12 +28,33 @@ export const About = () => {
           </p>
         </ul>
       </div>
+      <br />
       <div className="developers-info">
         <h4 className="developers-header">Chantal Gomez</h4>
 
-        <p></p>
+        <p>
+           I am a software developer and a graphic designer from Brooklyn. I was first introduced
+           to coding in my web design 101 class when I attended New York City College of Technology. 
+           I am currently enrolled at Pursuit and am learning more on how to become a better programmer 
+           one day at a time. 
+        </p>
+        <ul>
+          I have experience with the following programming languages:
+          <li>JavaScript</li>
+          <li>HTML5</li>
+          <li>CSS</li>
+          <li>React</li>
+          <li>Node.js</li>
+        </ul>
+        <p>
+          I am detailed orianted individual with a versatile approach. My love for art and problem solving 
+         pushes me to create easy to use and beautiful web apps. You can view some of my work at 
+         my <a href="https://github.com/chanGomez">GitHub</a>. And if you're interested some of my art is up on 
+         my <a href="https://www.behance.net/nicolemartes1">Behance</a>.
+          </p>
       </div>
       <br />
+      <div className="about-project">
       <h2 className="about-header"> About the Project</h2>
       <p>
         We created a YouTube application using the React framework in
@@ -46,7 +66,8 @@ export const About = () => {
         leave a comment on the page. Once submitted, the comments are rendered
         on the page.
       </p>
-    </>
+      </div>
+    </div>
   );
 };
 
