@@ -60,36 +60,36 @@ function Search() {
   }
   return (
     <>
-    <div>
-    <ModalComponent modal={modal} error={error} closeModal={closeModal} />
-    </div>
-    <div className="container">
-      <form action="/search" onSubmit={handleOnSubmit}>
-        <div className="input-group mb-3">
-          <input
-            type="text"
-            name="query"
-            id="query"
-            className="form-control"
-            placeholder="Search..."
-            value={searchTerm}
-            onChange={(event) => setSearchTerm(event.target.value)}
-            required
-          />
-          <div className="input-group-append">
-            <button type="submit" className="btn btn-danger">
-              Search
-            </button>
-          </div>
-        </div>
-      </form>
-      <Display searchTerm={searchTerm} videoList={videoList} />
-      <div className="container">
-        <ul className="list-group">
-          <li className="list-group-item list-group-item-light">{message}</li>
-        </ul>
+      <div>
+        <ModalComponent modal={modal} error={error} closeModal={closeModal} />
       </div>
-    </div>
+      <div className="container">
+        <form action="/search" onSubmit={handleOnSubmit}>
+          <div className="input-group mb-3">
+            <input
+              type="text"
+              name="query"
+              id="query"
+              className="form-control"
+              placeholder="Search..."
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+              required
+            />
+            <div className="input-group-append">
+              <button type="submit" className="btn btn-danger">
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
+        <Display searchTerm={searchTerm} videoList={videoList} />
+        <div className="container">
+          <ul className="list-group">
+            <li className="list-group-item list-group-item-light">{message}</li>
+          </ul>
+        </div>
+      </div>
     </>
   );
 }
