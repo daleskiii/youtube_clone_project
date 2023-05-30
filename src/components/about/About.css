@@ -1,9 +1,17 @@
-h2.about-header {
+h1.about-header {
   text-align: center;
+  padding-bottom: 35px;
+}
+h2{
+  text-align: center;
+  padding-bottom: 35px;
 }
 
 .developers-info {
   display: block;
+  border-radius: 25px;
+  background: #eeeeeed7;
+  padding: 15px;
 }
 
 h4.delevlopers-header {
@@ -12,4 +20,11 @@ h4.delevlopers-header {
 
 h4.developers-header {
   text-align: center;
+}
+
+.about-project{
+  display: block;
+  border-radius: 25px;
+  background: #eeeeeed7;
+  padding: 15px;
 }

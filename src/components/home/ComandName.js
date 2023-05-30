@@ -25,13 +25,14 @@ export default function ComandName() {
     };
     setComments([...comments, newComment]);
 
+    //resets form
     setComment("");
     setName("");
 
-    if (name.trim() === "" || comment.trim() === "") {
-      alert("cant submit without filling out");
-      return;
-    }
+    // if (name.trim() === "" || comment.trim() === "") {
+    //   alert("cant submit without filling out");
+    //   return;
+    // }
   };
   /// created a delete function to delete a comment from array
   // defined a new variable with a copy of the comments array
@@ -45,8 +46,21 @@ export default function ComandName() {
   };
 
   return (
-    <>
-      <form className="comment-form">
+    
+    <div className="container">
+        <div class="list-group">
+        {comments.map((comment, index) => (
+          <ul class="list-group-item list-group-item-action" key={index}>
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{comment.name}</h5>
+              <p>{comment.comment}</p>
+              <button className="btn btn-danger" onClick={() => handleDelete(index)}>Delete</button>
+            </div>
+          </ul>
+        
+        ))}
+      </div>
+      <form className="comment-form" onSubmit={handleSubmit}>
         <h2 className="form-heading"> Comments</h2>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
@@ -58,6 +72,7 @@ export default function ComandName() {
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
           />
         </div>
         <div className="mb-3">
@@ -71,26 +86,17 @@ export default function ComandName() {
             id="comment"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
+            required
           />
         </div>
         <button
-          type="button"
+          type="submit"
           className="btn btn-danger "
-          onClick={handleSubmit}
+          // onClick={handleSubmit}
         >
           Submit
         </button>
       </form>
-      <div>
-        {comments.map((c, index) => (
-          <div key={index}>
-            <strong>{c.name}</strong>
-            <p>{c.comment}</p>
-
-            <button onClick={() => handleDelete(index)}>Delete</button>
-          </div>
-        ))}
-      </div>
-    </>
+    </div>
   );
 }

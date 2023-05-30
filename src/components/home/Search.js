@@ -51,12 +51,12 @@ function Search() {
           </div>
         </div>
       </form>
+      <Display searchTerm={searchTerm} videoList={videoList} />
       <div className="container">
         <ul className="list-group">
           <li className="list-group-item list-group-item-light">{message}</li>
         </ul>
       </div>
-      <Display searchTerm={searchTerm} videoList={videoList} />
     </div>
   );
 }
