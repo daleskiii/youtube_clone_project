@@ -25,8 +25,7 @@ function Search() {
       try {
         const result =
           await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=
-    ${event.target.query.value} &type=video&key=AIzaSyAxrg1Fs`);
-        //&type=video&key=AIzaSyAxrg1FsPQSEGLDOxgF09AhlRbUppuAFys&maxResults=7
+    ${event.target.query.value} &type=video&key=AIzaSyAxrg1FsPQSEGLDOxgF09AhlRbUppuAFys&maxResults=7`);
 
         // dynamically searching for the value provided by the user in the input field
         // function to update the state of the video list empty array to the api result object.data.item
@@ -57,8 +56,13 @@ function Search() {
   }
   function closeModal() {
     setModal(false);
+    window.location.reload(false);
   }
   return (
+    <>
+    <div>
+    <ModalComponent modal={modal} error={error} closeModal={closeModal} />
+    </div>
     <div className="container">
       <form action="/search" onSubmit={handleOnSubmit}>
         <div className="input-group mb-3">
@@ -79,7 +83,6 @@ function Search() {
           </div>
         </div>
       </form>
-      <ModalComponent modal={modal} error={error} closeModal={closeModal} />
       <Display searchTerm={searchTerm} videoList={videoList} />
       <div className="container">
         <ul className="list-group">
@@ -87,6 +90,7 @@ function Search() {
         </ul>
       </div>
     </div>
+    </>
   );
 }
 
