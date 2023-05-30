@@ -1,33 +1,31 @@
 import React from "react";
-// import "./Modal.css";
 import Modal from "react-modal";
 
 function ModalComponent({ error, closeModal, modal }) {
-  // const [modal, setModal]= useState(true)
 
-  // const toggleModal = () => {
-  //     setModal(!Modal)
-  // }
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
 
   return (
-    //     <>
-    //     {modal && (
-    <div className="modal">
-      <Modal isOpen={modal}>
-        <div className="overlay">
-          <div className="modal-content">
-            <h2>Error Found</h2>
-            <p>{error}</p>
-          </div>
-        </div>
-        <button className="close-modal" onClick={closeModal}>
-          Close
+    <div className="container">
+            <Modal 
+      isOpen={modal}
+      style={customStyles}>
+        <button className="btn btn-danger pull-right" onClick={closeModal}>
+          x
         </button>
+        <h2>Error Found</h2>
+        <p>{error}</p>
       </Modal>
     </div>
-
-    //   )}
-    //     </>
   );
 }
 
