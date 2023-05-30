@@ -1,41 +1,29 @@
 import { Link, NavLink } from "react-router-dom";
+import { Navbar, Nav } from "react-bootstrap";
 import React from "react";
 
-function Nav() {
+function NavComponent() {
   return (
-    <nav className="navbar navbar-expand-lg bg-danger">
+    <Navbar bg="danger" expand="lg">
       <div className="container-fluid">
-        <Link className="navbar-brand" href="#" to="/">
+        <Link className="navbar-brand" to="/">
           Youtube
         </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/">
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/about">
-                About
-              </NavLink>
-            </li>
-          </ul>
-        </div>
+
+        <Navbar.Toggle aria-controls="navbarNav" className="d-lg-none" />
+        <Navbar.Collapse id="navbarNav">
+          <Nav className="ml-auto">
+            <NavLink className="nav-link" to="/" exact="true">
+              Home
+            </NavLink>
+            <NavLink className="nav-link" to="/about">
+              About
+            </NavLink>
+          </Nav>
+        </Navbar.Collapse>
       </div>
-    </nav>
+    </Navbar>
   );
 }
 
-export default Nav;
+export default NavComponent;
