@@ -28,11 +28,6 @@ export default function ComandName() {
     //resets form
     setComment("");
     setName("");
-
-    // if (name.trim() === "" || comment.trim() === "") {
-    //   alert("cant submit without filling out");
-    //   return;
-    // }
   };
   /// created a delete function to delete a comment from array
   // defined a new variable with a copy of the comments array
@@ -46,18 +41,21 @@ export default function ComandName() {
   };
 
   return (
-    
     <div className="container">
-        <div class="list-group">
+      <div class="list-group">
         {comments.map((comment, index) => (
           <ul class="list-group-item list-group-item-action" key={index}>
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1">{comment.name}</h5>
               <p>{comment.comment}</p>
-              <button className="btn btn-danger" onClick={() => handleDelete(index)}>Delete</button>
+              <button
+                className="btn btn-danger"
+                onClick={() => handleDelete(index)}
+              >
+                Delete
+              </button>
             </div>
           </ul>
-        
         ))}
       </div>
       <form className="comment-form" onSubmit={handleSubmit}>
@@ -89,11 +87,7 @@ export default function ComandName() {
             required
           />
         </div>
-        <button
-          type="submit"
-          className="btn btn-danger "
-          // onClick={handleSubmit}
-        >
+        <button type="submit" className="btn btn-danger ">
           Submit
         </button>
       </form>
