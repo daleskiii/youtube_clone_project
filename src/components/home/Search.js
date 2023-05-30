@@ -25,7 +25,7 @@ function Search() {
       try {
         const result =
           await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=
-    ${event.target.query.value} &type=video&key=AIzaSyAxrg1FsPQSEGLDOxgF09AhlRbUppuAFys&maxResults=7`);
+    ${event.target.query.value} &type=video&key=AIzaSyAxrg1FsPQSEGLDOxgF09AhlRbUppuAFys&maxResults=9`);
 
         // dynamically searching for the value provided by the user in the input field
         // function to update the state of the video list empty array to the api result object.data.item
