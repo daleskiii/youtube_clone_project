@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Search.css";
 import Display from "./Display";
-import Modal from './Modal'
+
+import ModalComponent from "./Modal";
 
 function Search() {
   // created state variable for search term which is the value the user search.
@@ -12,8 +13,8 @@ function Search() {
   const [videoList, setVideoList] = useState([]);
   const [message, setMessage] = useState(`No Search Results! Please submit 
   a search above!`);
-  const [error, setError] = useState("")
-  const [modal, setModal]= useState(false)
+  const [error, setError] = useState("");
+  const [modal, setModal] = useState(false);
   //defined a function for the submit event on form element
   // declared the preventDefault function to stop the page from refreshing on submitting.
   function handleOnSubmit(event) {
@@ -25,25 +26,25 @@ function Search() {
         const result =
           await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=
     ${event.target.query.value} &type=video&key=AIzaSyAxrg1Fs`);
-    //&type=video&key=AIzaSyAxrg1FsPQSEGLDOxgF09AhlRbUppuAFys&maxResults=7
+        //&type=video&key=AIzaSyAxrg1FsPQSEGLDOxgF09AhlRbUppuAFys&maxResults=7
 
         // dynamically searching for the value provided by the user in the input field
         // function to update the state of the video list empty array to the api result object.data.item
 
         setVideoList(result.data.items);
       } catch (e) {
-        const errorMessage = e.response.data.error.errors[0].message
+        const errorMessage = e.response.data.error.errors[0].message;
         // console.log(e.response.data.error.errors[0].message);
 
         // if (e.response && error.response.status === 400){
         //   return(<Modal/>)
         // }
 
-      // const toggleModal = () => {
-      //    setModal(!Modal)
-      //   }
-        setError(errorMessage)
-        setModal(true)
+        // const toggleModal = () => {
+        //    setModal(!Modal)
+        //   }
+        setError(errorMessage);
+        setModal(true);
       }
     }
     // declare aync function
@@ -52,9 +53,11 @@ function Search() {
     setSearchTerm("");
     // reset message
     setMessage("");
-    setError(null)
+    setError(null);
   }
-
+  function closeModal() {
+    setModal(false);
+  }
   return (
     <div className="container">
       <form action="/search" onSubmit={handleOnSubmit}>
@@ -76,7 +79,7 @@ function Search() {
           </div>
         </div>
       </form>
-      {modal && <Modal error={error} />}
+      <ModalComponent modal={modal} error={error} closeModal={closeModal} />
       <Display searchTerm={searchTerm} videoList={videoList} />
       <div className="container">
         <ul className="list-group">
